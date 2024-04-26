@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:sigv4/sigv4.dart';
 
@@ -8,7 +10,7 @@ extension DioExtension on RequestOptions {
       method: method,
       query: queryParameters,
       headers: headers,
-      body: data,
+      body: jsonEncode(data),
     );
 
     headers.addAll(signed);
