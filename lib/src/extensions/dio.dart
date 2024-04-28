@@ -6,11 +6,11 @@ import 'package:sigv4/sigv4.dart';
 extension DioExtension on RequestOptions {
   RequestOptions sign(Sigv4Client client) {
     final signed = client.signedHeaders(
-      '$baseUrl$path',
+      client.canonicalUrl('$baseUrl$path', query: queryParameters),
       method: method,
       query: queryParameters,
       headers: headers,
-      body: jsonEncode(data),
+      body: data != null ? jsonEncode(data) : null,
     );
 
     headers.addAll(signed);
