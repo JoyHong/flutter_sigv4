@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   crypto: ^3.0.1
-  http: ^0.13.3
+  http: ^1.1.0
   convert: ^3.0.0
   dio: ^5.4.2+1
 
